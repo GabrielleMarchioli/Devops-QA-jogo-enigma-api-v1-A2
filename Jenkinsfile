@@ -100,7 +100,7 @@ pipeline {
                     $ok = $false
                     for ($i = 1; $i -le 12; $i++) {
                         try {
-                            $r = Invoke-RestMethod -Uri "http://localhost:8080/actuator/health" -TimeoutSec 5
+                            $r = Invoke-RestMethod -Uri "http://localhost:8090/actuator/health" -TimeoutSec 5
                             if ($r.status -eq "UP") { $ok = $true; break }
                         } catch {
                             Write-Host "API ainda nao pronta. Tentativa $i/12..."
@@ -131,7 +131,7 @@ pipeline {
 
         stage('10 - Observabilidade') {
             steps {
-                echo 'API: http://localhost:8080'
+                echo 'API: http://localhost:8090'
                 echo 'BFF/Front: http://localhost:3000'
                 echo 'Prometheus: http://localhost:9091'
                 echo 'Grafana: http://localhost:3001'

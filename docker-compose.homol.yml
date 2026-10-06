@@ -35,7 +35,7 @@ services:
       DB_USER: enigma
       DB_PASSWORD: enigma_homol
     ports:
-      - "8080:8080"
+      - "8090:8080"
     depends_on:
       postgres:
         condition: service_healthy
